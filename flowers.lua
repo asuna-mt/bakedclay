@@ -3,7 +3,7 @@ local S = minetest.get_translator("bakedclay")
 
 local flowers = {
 	{"delphinium", S("Blue Delphinium"),
-	{-0.15, -0.5, -0.15, 0.15, 0.3, 0.15}, {color_cyan = 1}},
+	{-0.15, -0.5, -0.15, 0.15, 0.3, 0.15}, {color_blue = 1}},
 
 	{"thistle", S("Thistle"),
 	{-0.15, -0.5, -0.15, 0.15, 0.2, 0.15}, {color_magenta = 1}},
@@ -44,79 +44,6 @@ end
 for _,item in pairs(flowers) do
 	add_simple_flower(unpack(item))
 end
-
--- add new flowers to mapgen
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"default:dirt_with_grass"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.004,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7133,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 10,
-	y_max = 90,
-	decoration = "bakedclay:delphinium"
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"default:dirt_with_grass", "default:dirt_with_dry_grass"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.004,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7134,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 15,
-	y_max = 90,
-	decoration = "bakedclay:thistle"
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.01,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7135,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 1,
-	y_max = 90,
-	decoration = "bakedclay:lazarus",
-	spawn_by = "default:jungletree",
-	num_spawn_by = 1
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"default:dirt_with_grass", "default:sand"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0,
-		scale = 0.009,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 7136,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 1,
-	y_max = 15,
-	decoration = "bakedclay:mannagrass",
-	spawn_by = "group:water",
-	num_spawn_by = 1
-})
 
 -- flowerpot mod
 if minetest.get_modpath("flowerpot") then
