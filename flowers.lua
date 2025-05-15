@@ -1,7 +1,7 @@
 
 -- translation support
 
-local S = minetest.get_translator("bakedclay")
+local S = core.get_translator("bakedclay")
 
 -- new flowers
 
@@ -28,7 +28,7 @@ local function add_simple_flower(name, desc, box, f_groups)
 	f_groups.flora = 1
 	f_groups.attached_node = 1
 
-	minetest.register_node("bakedclay:" .. name, {
+	core.register_node("bakedclay:" .. name, {
 		description = desc,
 		drawtype = "plantlike",
 		waving = 1,
@@ -53,7 +53,7 @@ end
 
 -- flowerpot mod support
 
-if minetest.get_modpath("flowerpot") then
+if core.get_modpath("flowerpot") then
 	flowerpot.register_node("bakedclay:delphinium")
 	flowerpot.register_node("bakedclay:thistle")
 	flowerpot.register_node("bakedclay:lazarus")
